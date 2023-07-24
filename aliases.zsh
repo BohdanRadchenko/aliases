@@ -1,5 +1,7 @@
 # navigation aliases
 alias dev="cd ~/Desktop/dev/"
+alias containers="cd ~/Desktop/dev/containers"
+alias container="cd ~/Desktop/dev/containers"
 alias personal="cd ~/Desktop/dev/_github"
 alias home="cd ~/Desktop/dev/_home"
 alias business="cd ~/Desktop/dev/projects"
@@ -27,8 +29,17 @@ alias m="mkdir"
 alias t="touch"
 
 # PORT PID aliases
+alias ports="sudo lsof -i -P | grep LISTEN | grep :$PORT"
+# alias port="sudo lsof -i tcp:$PORT"
+port() {
+    command sudo lsof -i tcp:$1
+}
+pkill() {
+    # command  sudo lsof -t -i tcp:$1 | xargs kill -9
+    command sudo kill -9 $(sudo lsof -t -i tcp:$1)
+}
 alias lsp="lsof -aPi -p" # + PORT view PID
-alias pkill='kill -9' # + PID
+# alias pkill='kill -9' # + PID
 alias myip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | cut -d\   -f2"
 
 # git aliases
@@ -48,6 +59,10 @@ alias gcc-='git checkout -'
 alias gas="ga && gs"
 alias gmm="git merge master"
 alias grm="git rebase master"
+
+# SUDO
+alias _='sudo'
+alias __='sudo !!'
 
 # zsh 
 alias zshconfig="mate ~/.zshrc"
