@@ -73,3 +73,7 @@ alias ec="$EDITOR $HOME/.zshrc"
 alias sc="source $HOME/.zshrc"
 #open aliases
 alias aliases="open ~/.oh-my-zsh/custom/aliases.zsh"
+
+#ssh
+alias sshconfig="code ~/.ssh/config"
+#ssh-add -L    
